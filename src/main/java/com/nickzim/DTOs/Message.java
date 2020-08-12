@@ -1,5 +1,6 @@
 package com.nickzim.DTOs;
 
+import com.nickzim.DTOs.Attachments.Attachment;
 import lombok.Data;
 
 @Data
@@ -21,7 +22,7 @@ public class Message {
 
     private String ref_source;
 
-    //private Attachment[] attachments;
+    private Attachment[] attachments;
 
     private Boolean important;
 

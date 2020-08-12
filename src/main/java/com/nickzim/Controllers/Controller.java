@@ -21,7 +21,7 @@ public class Controller {
         switch (event.getType()){
 
             case "confirmation": {
-                return "";
+                return "906d68a7";
             }
 
             case "message_new": {
