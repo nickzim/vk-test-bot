@@ -8,8 +8,8 @@ import retrofit2.http.Query;
 public interface ServerApi {
 
     @GET("messages.send")
-    Call<Response> sendMessage(@Query("user_id") Long user_id, @Query("random_id") Long random_id,
-                               @Query("peer_id") Long peer_id, @Query("message") String message,
+    Call<Response> sendMessage(@Query("user_id") Integer user_id, @Query("random_id") Integer random_id,
+                               @Query("peer_id") Integer peer_id, @Query("message") String message,
                                @Query("access_token") String access_token, @Query("v") Double v);
 
 

@@ -1,6 +1,6 @@
 package com.nickzim.Controllers;
 
-import com.nickzim.DTOs.Event;
+import com.nickzim.DTOs.EventPackage.Event;
 import com.nickzim.VkApi.ServerApiImpl;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +18,27 @@ public class Controller {
     @RequestMapping(value = "/",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String getMessage(@RequestBody Event event){
 
-        System.out.println(event.getObject().getBody());
+        switch (event.getType()){
 
-        serverApi.sendMessage(event.getObject());
+            case "confirmation": {
+                return "";
+            }
 
-        return "ok";
+            case "message_new": {
+
+                System.out.println(event.getObject().getMessage().toString());
+
+                serverApi.sendMessage(event.getObject().getMessage());
+                return "ok";
+            }
+
+            default: {
+                return null;
+            }
+        }
+
     }
+
 
 
 }

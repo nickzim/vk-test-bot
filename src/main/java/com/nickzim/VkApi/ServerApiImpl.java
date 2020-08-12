@@ -6,7 +6,6 @@ import com.google.gson.GsonBuilder;
 import com.nickzim.DTOs.Message;
 import com.nickzim.DTOs.Response;
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -16,7 +15,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ServerApiImpl{
 
     private final String token = "";
-    private final Double version = 5.46;
+    private final Double version = 5.122;
 
     public void sendMessage(Message message){
         Gson gson = new GsonBuilder()
@@ -30,10 +29,28 @@ public class ServerApiImpl{
 
         ServerApi serverApi = retrofit.create(ServerApi.class);
 
-        String responseMsg = "Вы сказали: " + message.getBody();
+        Call<Response> request = null;
 
-        Call<com.nickzim.DTOs.Response> request = serverApi.sendMessage(message.getUser_id(), ThreadLocalRandom.current().nextLong(),
-                              message.getUser_id(), responseMsg,token,version);
+        StringBuilder responseMsg = new StringBuilder();
+
+        if (message.getFwd_messages().length > 0){
+            responseMsg.append("Пересланные сообщения: \n");
+            for (Message it :message.getFwd_messages()){
+                responseMsg.append(it.getText() + "\n");
+            }
+
+            request = serverApi.sendMessage(message.getPeer_id(), ThreadLocalRandom.current().nextInt(),
+                    message.getFrom_id(), responseMsg.toString(),token,version);
+        }
+
+        if (!message.getText().isEmpty()){
+            responseMsg.append("Сообщение: ");
+            responseMsg.append(message.getText());
+
+            request = serverApi.sendMessage(message.getFrom_id(), ThreadLocalRandom.current().nextInt(),
+                    message.getFrom_id(), responseMsg.toString(),token,version);
+        }
+
 
         try {
             request.execute();
