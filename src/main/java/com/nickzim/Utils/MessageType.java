@@ -4,5 +4,7 @@ public enum MessageType {
 
     SIMPLE,
     FORWARDED,
+    MEDIA,
+    LINK,
     STICKER
 }

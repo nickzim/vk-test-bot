@@ -28,4 +28,6 @@ public class Message {
 
     private Message[] fwd_messages;
 
+    private Integer conversation_message_id;
+
 }

@@ -21,12 +21,12 @@ public class Controller {
         switch (event.getType()){
 
             case "confirmation": {
-                return "906d68a7";
+                return "864eb6e5";
             }
 
             case "message_new": {
 
-                System.out.println(event.getObject().getMessage().toString());
+                System.out.println("Запрос: " + event.getObject().getMessage().toString());
 
                 serverApi.sendMessage(event.getObject().getMessage());
                 return "ok";

@@ -1,4 +1,4 @@
-package com.nickzim.DTOs;
+package com.nickzim.DTOs.Responce;
 
 import lombok.Data;
 
@@ -6,5 +6,7 @@ import lombok.Data;
 public class Response {
 
     private String response;
+
+    private Error error;
 
 }

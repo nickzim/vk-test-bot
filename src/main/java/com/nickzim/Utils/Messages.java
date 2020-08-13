@@ -6,8 +6,8 @@ public class Messages {
 
     public static MessageType getMessageType(Message message){
 
-        boolean hasAttachment = message.getAttachments().length > 0;
         boolean hasForwardedMessage = message.getFwd_messages().length > 0;
+        boolean hasAttachment = message.getAttachments().length > 0;
 
         if (!hasAttachment && !hasForwardedMessage){
             return MessageType.SIMPLE;
@@ -17,19 +17,22 @@ public class Messages {
             return MessageType.FORWARDED;
         }
 
-        if (hasAttachment){
+        if ("sticker".equals(message.getAttachments()[0].getType())){
             return MessageType.STICKER;
+        } else if ("link".equals(message.getAttachments()[0].getType())){
+            return MessageType.LINK;
+        } else {
+            return MessageType.MEDIA;
         }
 
-        return MessageType.SIMPLE;
     }
 
-    public static DestinationType getDestinationType(Message message){
+    public static boolean isPrivate(Message message){
 
-        if (message.getPeer_id() - 2000000000 > 0){
-            return DestinationType.CHAT;
+        if (message.getPeer_id() - 2000000000 <= 0){
+            return true;
         } else {
-            return DestinationType.PRIVATE;
+            return false;
         }
     }
 }
