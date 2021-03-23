@@ -1,4 +1,4 @@
-package com.nickzim.DTOs.Responce;
+package com.nickzim.domain.responce;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.nickzim.DTOs.Attachments;
+package com.nickzim.domain.attachments;
 
 import lombok.Data;
 

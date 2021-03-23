@@ -1,4 +1,4 @@
-package com.nickzim.Utils;
+package com.nickzim.utils;
 
 public enum MessageType {
 

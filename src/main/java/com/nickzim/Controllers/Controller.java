@@ -1,8 +1,8 @@
-package com.nickzim.Controllers;
+package com.nickzim.controllers;
 
 import com.nickzim.Configuration;
-import com.nickzim.DTOs.EventPackage.Event;
-import com.nickzim.VkApi.ServerApiImpl;
+import com.nickzim.domain.events.Event;
+import com.nickzim.vkapi.ServerApiImpl;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 

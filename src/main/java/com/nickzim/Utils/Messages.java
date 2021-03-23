@@ -1,6 +1,6 @@
-package com.nickzim.Utils;
+package com.nickzim.utils;
 
-import com.nickzim.DTOs.Message;
+import com.nickzim.domain.Message;
 
 public class Messages {
 

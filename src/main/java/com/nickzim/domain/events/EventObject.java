@@ -1,6 +1,6 @@
-package com.nickzim.DTOs.EventPackage;
+package com.nickzim.domain.events;
 
-import com.nickzim.DTOs.Message;
+import com.nickzim.domain.Message;
 import lombok.Data;
 
 @Data

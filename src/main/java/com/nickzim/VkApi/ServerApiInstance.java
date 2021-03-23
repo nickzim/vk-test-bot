@@ -1,4 +1,4 @@
-package com.nickzim.VkApi;
+package com.nickzim.vkapi;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

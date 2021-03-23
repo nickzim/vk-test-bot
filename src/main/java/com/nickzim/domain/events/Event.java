@@ -1,4 +1,4 @@
-package com.nickzim.DTOs.EventPackage;
+package com.nickzim.domain.events;
 
 import lombok.Data;
 

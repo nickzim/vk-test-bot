@@ -1,11 +1,11 @@
-package com.nickzim.VkApi;
+package com.nickzim.vkapi;
 
 
 import com.nickzim.Configuration;
-import com.nickzim.DTOs.Attachments.Attachment;
-import com.nickzim.DTOs.Message;
-import com.nickzim.DTOs.Responce.Response;
-import com.nickzim.Utils.Messages;
+import com.nickzim.domain.attachments.Attachment;
+import com.nickzim.domain.Message;
+import com.nickzim.domain.responce.Response;
+import com.nickzim.utils.Messages;
 import retrofit2.Call;
 
 import java.io.IOException;
