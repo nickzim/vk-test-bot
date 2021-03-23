@@ -7,8 +7,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServerApiInstance {
 
-    private ServerApi serverApi;
-    private static ServerApiInstance instance;
+    private final ServerApi serverApi;
+    private static class SingletonHolder {
+        public static final ServerApiInstance instance = new ServerApiInstance();
+    }
 
     private ServerApiInstance(){
         Gson gson = new GsonBuilder()
@@ -24,10 +26,7 @@ public class ServerApiInstance {
     }
 
     static public ServerApiInstance getInstance(){
-        if (instance == null){
-            instance = new ServerApiInstance();
-        }
-        return instance;
+        return SingletonHolder.instance;
     }
 
     public ServerApi getServerApi(){
