@@ -3,16 +3,18 @@ package com.nickzim.controllers;
 import com.nickzim.Configuration;
 import com.nickzim.domain.events.Event;
 import com.nickzim.vkapi.ServerApiImpl;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@AllArgsConstructor
 public class Controller {
 
-    private final ServerApiImpl serverApi;
+    @Autowired
+    private ServerApiImpl serverApi;
 
     @RequestMapping(value = "/",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String getMessage(@RequestBody Event event){

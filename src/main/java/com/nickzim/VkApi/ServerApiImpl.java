@@ -2,8 +2,8 @@ package com.nickzim.vkapi;
 
 
 import com.nickzim.Configuration;
-import com.nickzim.domain.attachments.Attachment;
 import com.nickzim.domain.Message;
+import com.nickzim.domain.attachments.Attachment;
 import com.nickzim.domain.responce.Response;
 import com.nickzim.utils.Messages;
 import org.springframework.stereotype.Component;
