@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServerApiInstance {
 
     private final ServerApi serverApi;
+
     private static class SingletonHolder {
         public static final ServerApiInstance instance = new ServerApiInstance();
     }

@@ -6,16 +6,18 @@ import com.nickzim.domain.attachments.Attachment;
 import com.nickzim.domain.Message;
 import com.nickzim.domain.responce.Response;
 import com.nickzim.utils.Messages;
+import org.springframework.stereotype.Component;
 import retrofit2.Call;
 
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
+@Component
 public class ServerApiImpl{
 
     private final String token = Configuration.getToken();
     private final Double version = Configuration.getApiVersion();
-    private ServerApi serverApi = ServerApiInstance.getInstance().getServerApi();
+    private final ServerApi serverApi = ServerApiInstance.getInstance().getServerApi();
 
     public void sendMessage(Message message){
 
